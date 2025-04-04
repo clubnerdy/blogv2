@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 public class UserRepository {
     private final EntityManager em;
 
+    public User findById(int id) {
+        return em.find(User.class, id);
+    }
+
 
     /*
         1. createNativeQuery -> 기본쿼리
@@ -18,7 +22,8 @@ public class UserRepository {
     */
 
     public void save(User user) {
-        em.persist(user);
+        em.persist(user); // 2. user 영속 객체
+        // 3. user
     }
 
 //    public void save(String username, String password, String email) {
